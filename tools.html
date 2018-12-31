@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en"><!-- user/themes/photon/templates/default.html.twig --><!-- user/themes/photon/templates/article.html.twig --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Tools | photon</title>
+
+<!-- meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Lato');
+  </style>
+
+<!-- CSS photon -->
+<style>
+
+
+/* base elements *****************************/
+/* photon ✴ Theme Elements*/
+/* elements/_index *****************************/
+* { margin: 0; padding: 0; box-sizing: border-box; border: 0; border-radius: 0; }
+
+/* elements/html *****************************/
+html { height: 100%; max-width: 100%; color: EFEFEF; background: #223; font-family: 'Lato', sans-serif; font-weight: 400; line-height: 1.35; text-align: left; }
+
+/* elements/headings *****************************/
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1; font-weight: 700; line-height: 1.5; display: block; }
+
+h1 { font-size: 1.5em; }
+
+h2 { font-size: 1.3em; }
+
+h3 { font-size: 1.2em; }
+
+h4 { font-size: 1.1em; }
+
+/* elements/blocks *****************************/
+p, div, dd, dt, details, summary { display: block; font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1; }
+
+/* elements/lists *****************************/
+ul, ol, li { margin-left: .5em; }
+
+ul { list-style: disc outside; }
+
+ol { list-style: decimal outside; }
+
+li { font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1; }
+
+/* elements/blockquotes *****************************/
+blockquote { margin: 1em auto; font-size: 1.2em; display: block; }
+blockquote::before { content: ''; height: 100%; width: .1em; position: absolute; left: 0; top: 0; background: var(--color-key-dark); display: block; }
+blockquote > blockquote { margin: 0; padding-bottom: 0; font-style: italic; }
+blockquote > blockquote::before { content: '✴'; padding-top: 1em; background: inherit; display: inline; }
+blockquote p { margin-bottom: 0; position: relative; overflow: visible; }
+
+/* elements/code *****************************/
+pre, code, kbd, samp { padding: .1em .25em; color: #EFEFEF; background: #333; font-family: monospace; font-size: 1em; line-height: 1.5; border-radius: 0; }
+
+code { height: auto; }
+pre code { padding: 1em; display: block; }
+
+pre { display: block; }
+
+/* elements/a *****************************/
+a { --color: hsl(44,33,50); --bg: none; --a-active-color: var(--color-2-dark); --hover-color: #EFEFEF; --hover-bg: hsl(44,33,50); color: var(--color); background: var(--bg); text-decoration: none; display: flex; flex-flow: row; justify-content: center; }
+a:link { color: var(--color); }
+a:visited { color: var(--color); }
+a:hover { --color: var(--hover-color); --bg: var(--hover-bg); }
+a:active { color: var(--a-active-color); }
+a.active { font-weight: 700; }
+a.active::before, a.active::after { content: '✴'; padding: 0 .5em; }
+@media (min-width: 72em) { a { flex-flow: column; } }
+
+/* elements/inline *****************************/
+b, strong { font-weight: inherit; font-weight: bolder; }
+
+em, i { font-style: italic; }
+
+cite { font-style: italic; }
+
+mark {  background: yellow; }
+
+abbr[title] { border-bottom: 0; text-decoration: underline; text-decoration: underline dotted; }
+
+small { line-height: 1; font-size: 0.8em; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sub { bottom: -.25em; }
+
+sup { top: -.5em; }
+
+/* elements/figure *****************************/
+img { border-style: none; display: block; }
+
+figure { position: relative; height: auto; display: block; }
+figure img { max-width: 100%; height: 100%; object-fit: cover; }
+figure figcaption { position: absolute; left: 0; bottom: 0; width: 100%; padding: .75em 1em; z-index: 2; color: #EFEFEF; background: #333; opacity: 0; transition: opacity .3s ease-in-out; }
+figure:hover > figcaption { opacity: 1; }
+
+/* elements/tables *****************************/
+table { --border-color: #333; max-width: 100%; }
+
+th, td { padding: calc( .5em / 2 ); }
+
+th { font-weight: 700; text-align: right; }
+
+/* elements/forms *****************************/
+button, input, optgroup, select, textarea { font-family: 'Lato', sans-serif; font-size: 100%; line-height: 1.15; }
+
+button, input { overflow: visible; }
+
+button, select { text-transform: none; }
+
+fieldset { padding: 0 1em 1em 1em; border: 5px solid #CC9; margin: 1em 0; }
+
+legend { color: inherit; display: table; max-width: 100%; white-space: normal; padding: 0 1em; font-weight: 700; }
+
+progress { display: inline-block; vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type="checkbox"], [type="radio"] { box-sizing: border-box; padding: 0; }
+
+[type="search"] { outline-offset: -2px; }
+
+[hidden] { display: none; }
+
+input[type=email], input[type=number], input[type=password], input[type=search], input[type=text], textarea { --bg: hsl(44,33,90); display: block; padding: .4em; outline: 0 none; border: 1px solid var(--color); text-align: left; color: var(--color); background: var(--bg); appearance: none; width: 100%; max-width: 100%; }
+input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=search]:focus, input[type=text]:focus, textarea:focus { color: var(--color); }
+input[type=email]::placeholder, input[type=number]::placeholder, input[type=password]::placeholder, input[type=search]::placeholder, input[type=text]::placeholder, textarea::placeholder { --color: var(--color-key-dark); }
+
+input[type=submit] { cursor: pointer; -webkit-appearance: none; appearance: none; border: 0 none; border-radius: .5em; color: hsl(44,33,90); background: hsl(44,33,50); padding: .5em; margin: .5em 0; text-decoration: none; }
+
+select { height: 2.75em; margin: 0 0 2em; padding: 0.575em 2em 0.575em 1.125em; display: block; width: 100%; color: var(--color); border: 2px solid var(--color); }
+
+label { display: block; font-weight: bold; margin-top: 1em; font-family: 'Lato', sans-serif; }
+
+button { border: 0 none; border-radius: .5em; color: hsl(44,33,90); background: hsl(44,33,50); padding: .5em; margin: .5em; text-decoration: none; }
+button:hover { background: var(--color-key-light); text-decoration: none; }
+
+/* articles/article *****************************/
+article { padding: .5em; color: #333; background: #EFEFEF; display: flex; flex-flow: column; align-content: flex-start; justify-content: flex-start; }
+article > * { margin: .5em; }
+article > figure { grid-area: figure; max-height: 70vh; padding: 0; background: radial-gradient(ellipse at bottom, var(--color-2-dark) 0%, var(--color-2-darker) 100%); overflow: hidden; text-align: center; }
+article > figure > img { width: 100%; height: 100%; margin: 0 auto; object-fit: cover; object-position: center; }
+article > figure > figcaption { text-align: center; }
+article > figure:empty { display: none; }
+article > header { grid-area: header; display: flex; flex-flow: column; align-items: center; }
+article > header > * { margin: .5em; }
+article > header > h1 { text-align: left; line-height: 1; text-align: center; }
+article > header > h2 { font-variant: normal; text-transform: uppercase; font-weight: 700; font-size: .9em; letter-spacing: .1em; text-align: center; }
+article > header > nav { flex-flow: row wrap; justify-content: flex-start; padding: 0; text-align: left; }
+article > header > nav a { padding: 0; }
+article > header > nav a::after { content: "›"; padding: 0 .25em; }
+article > header > time { font-size: .6em; padding-top: .5em; }
+article > .content { grid-area: content; display: block; max-width: var(--col-3); margin-left: auto; margin-right: auto; text-align: left; widows: 2; orphans: 2; }
+article > .content > * { margin: .5em; widows: 2; orphans: 2; }
+article > .content > *:last-child { margin-bottom: 0; }
+article > .content > .summary { background: var(--color-2-light); padding: .5em; }
+article > .content a { display: inline; }
+article > .content > ul { margin: 2em; }
+article > .content blockquote { padding: 1em; border-left: 1em solid var(--color-1-light); line-height: 1.7; }
+article > .content blockquote > ul { font-style: italic; list-style-type: square; padding-top: .5em; font-size: .9em; }
+article > footer { grid-area: footer; padding: 0; padding-top: 1em; display: flex; flex-flow: row wrap; justify-content: space-around; }
+article > footer > aside { min-width: 10em; }
+article > footer > aside ul, article > footer > aside li { margin: 0; }
+article > footer > aside ul h3, article > footer > aside li h3 { font-size: 1em; }
+article > footer > nav { align-content: flex-end; flex-flow: row; }
+article > footer a { letter-spacing: .25em; text-transform: uppercase; }
+article > .data { grid-area: data; }
+article > .data h1, article > .data table { text-align: center; width: 100%; }
+article > .data h1 { text-decoration: underline; }
+article > .data th, article > .data td { display: block; text-align: center; width: 100%; }
+article > .data th { font-size: .7em; letter-spacing: .25em; padding-left: .25em; padding-bottom: 0; text-transform: uppercase; }
+article > .data td { padding-top: 0; }
+article > .gallery { grid-area: gallery; display: flex; flex-flow: row wrap; display: grid; grid-template-columns: repeat(auto-fit, calc( var(--col)/2 )); grid-auto-flow: row; justify-content: center; align-items: flex-start; }
+article > .gallery > figure { padding: .5em; overflow: hidden; text-align: center; }
+article > .gallery > figure a { display: block; }
+article > .gallery > figure a > img { object-fit: contain; object-position: center; }
+article > .gallery > figure a > figcaption { text-align: center; }
+article .sibling { grid-area: sibling; position: relative; font-size: 1em; display: flex; flex-flow: row nowrap; justify-content: space-between; }
+article .sibling > a { width: 100%; display: flex; flex-flow: row; }
+article .sibling > a.prev { justify-content: flex-start; }
+article .sibling > a.prev:before { content: "‹"; height: 100%; padding-right: .5em; }
+article .sibling > a.next { justify-content: flex-end; }
+article .sibling > a.next:after { content: "›"; height: 100%; padding-left: .5em; }
+article .breadcrumbs a { flex-flow: row; }
+@media (min-width: 126em) { @supports (display: grid) { article { display: grid; grid-template-areas: ' figure footer ' ' header footer' ' content data' ' gallery   gallery'; grid-template-columns: 1fr var(--col); }
+    article > footer { flex-flow: column; } } }
+
+article.excerpt { cursor: pointer; transition: box-shadow .5s, background .5s; }
+article.excerpt > header > h1 { text-align: left; }
+article.excerpt .article-share { display: none; }
+/* article.excerpt:hover { --color-bg: hsl(44,33,90);  } */
+article.excerpt .more { align-self: flex-end; }
+
+article.showcase { cursor: pointer; transition: box-shadow .5s, background .5s; height: 100%; }
+@supports (display: grid) { article.showcase { display: grid; grid-template-areas: ' figure  ' ' header ' ' content ' ' footer  '; grid-template-columns: 1fr; } }
+article.showcase > figure { width: auto; height: 100%; }
+article.showcase > figure > img { object-fit: cover; }
+article.showcase > figure:empty { display: none; }
+article.showcase > header > h1 { text-align: center; }
+article.showcase .article-share { display: none; }
+article.showcase:hover { box-shadow: 0.5em 0.5em 0.7em rgba(0, 0, 0, 0.4); }
+article.showcase .more { align-self: flex-end; }
+
+/* asides/aside *****************************/
+aside { text-align: center; display: flex; flex-flow: column nowrap; justify-content: center; align-content: flex-start; }
+aside h1, aside h2 { font-variant: small-caps; text-decoration: underline; font-size: 1.1em; }
+aside ul { list-style: none; margin: 0 1em; }
+aside ul > li { margin: .4em; width: 100%; }
+aside ul > li > span { font-size: .75em; font-weight: bold; padding: 0.25em; margin-left: .5em; background: var(--color-1); border-radius: 20% 20%; }
+aside p { padding-bottom: .2em; }
+aside > a { display: list-item; list-style: none; }
+aside.org { font-size: .7em; text-align: center; }
+aside.article-share ul, aside.follow ul { font-family: var(--font-icon); list-style: none; display: flex; flex-flow: row nowrap; align-content: center; justify-content: center; }
+aside.article-share ul li, aside.follow ul li { width: auto; }
+aside.article-share ul a, aside.follow ul a { text-transform: inherit; padding: .3em; font-size: 1.1em; }
+
+/* asides/search *****************************/
+aside.search > section { flex-flow: column nowrap; }
+
+.search-result-title { font-weight: 700; }
+
+.search-result { font-weight: 300; }
+
+.search-keyword { font-weight: 700; font-style: normal; }
+
+/* sections/_default *****************************/
+section, .asides, .featured, footer, header, main, nav, .showcase { display: flex; }
+
+/* sections/asides *****************************/
+.asides { padding: 1em; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
+.asides > aside { margin-bottom: 1em; }
+@media (min-width: 72em) { .asides { flex-direction: column; align-items: center; } }
+
+/* sections/featured *****************************/
+.featured { padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--col), 1fr)); overflow: auto; }
+.featured > * { margin: .5em; padding: .5em; }
+.featured > h1 { grid-column: 1 / -1; letter-spacing: .25em; padding-left: .25em; text-align: center; text-transform: uppercase; }
+.featured > article { /* article-banner */ }
+.featured > article > figure { max-height: 9em; padding: .5em; }
+.featured > article > figure > img { height: 100%; object-position: center; }
+.featured > article > header { text-align: left; display: block; }
+.featured > article > header > * { text-align: left; margin-left: 0; }
+.featured > article > .content { text-align: left; margin: 0; }
+.featured > article > .content .summary { text-align: left; }
+.featured > article > .content .summary > ul { list-style: disc; text-align: left; margin: 0; margin-left: 1em; padding: 0; }
+.featured > article > .content .summary > ul li::after { display: none; }
+.featured > article > footer { flex-flow: row wrap; justify-content: space-between; }
+.featured > article > footer > aside { padding: 0; }
+.featured > article > footer > aside > h1 { display: none; }
+.featured > article > footer > nav { padding: 0; justify-content: flex-end; }
+@media (min-width: 54em) { @supports (display: grid) { .featured > article { display: grid; grid-template-areas: ' figure header ' ' figure content ' ' figure footer'; grid-template-columns: calc(var(--col) / 2) 1fr; grid-template-rows: auto 1fr auto; } } }
+
+/* sections/footer *****************************/
+footer { padding: 1em; flex-direction: column; }
+
+/* sections/header *****************************/
+header { align-items: center; align-content: flex-start; justify-content: space-around; }
+header .logo { display: flex; justify-content: center; align-content: center; }
+header .logo a { display: flex; flex-flow: row nowrap; justify-content: center; align-items: center; padding: .5em; }
+header .logo a img { height: 3em; margin: .5em; }
+header .logo a h1 { font-size: 1.2em; letter-spacing: .1em; padding-left: .5em; text-align: center; }
+header nav.main { display: none; }
+header .contact { width: 9em; height: 9em; padding: .5em; justify-content: center; display: none; }
+header .contact p { font-size: .8em; text-align: center; }
+header .toggle { width: 3.5em; height: 3em; font-size: 2.5em; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center; }
+header.expand { height: calc(100vh - calc( 1em * 2 )); flex-flow: row wrap; }
+header.expand .logo { order: 1; height: calc(9em-1em); }
+header.expand .toggle { order: 2; height: calc(9em-1em); }
+header.expand nav { display: flex; flex-flow: column; order: 3; width: 100%; }
+header.expand .contact { display: flex; order: 4; }
+@media (min-width: 36em) { header .logo img { height: 5em; }
+  header .logo > a > h1 { font-size: 1em; } }
+@media (min-width: 54em) { header .logo { width: auto; height: auto; flex-flow: column; padding: .5em; }
+  header .logo a { flex-direction: column; }
+  header .logo a img { width: auto; height: 5em; }
+  header .logo a h1 { font-size: 1em; letter-spacing: .1em; padding-left: .1em; text-align: center; }
+  header .toggle { display: none; }
+  header .contact { display: flex; width: auto; height: auto; }
+  header nav.main { display: flex; } }
+
+/* on/main *****************************/
+main { flex-flow: column nowrap; }
+
+/* sections/nav *****************************/
+nav { flex-wrap: wrap; align-content: space-around; justify-content: center; }
+nav a { padding: .25em 1em; margin-left: .1em; letter-spacing: .1em; text-transform: uppercase; text-align: center; }
+nav.breadcrumbs { width: auto; }
+nav.tree { background: #EFEFEF; }
+nav.tree ul { text-align: left; }
+nav.tree ul a { text-align: left; display: block; }
+
+/* sections/showcase *****************************/
+.showcase { position: relative; display: block; }
+.showcase > article { position: absolute; top: 0; bottom: 0; right: 0; left: 0; opacity: 0; }
+.showcase > article > figure > figcaption { display: none; }
+.showcase > article > footer .article-share, .showcase > article > footer .article-tags, .showcase > article > footer .sibling { display: none; }
+
+/* templates/_default *****************************/
+body {  background: #333; color: #EFEFEF; padding: .5em; display: flex; flex-flow: column; align-content: center; justify-content: flex-start; }
+body > header, body > main, body > .asides, body > footer, body.home > .showcase, body.home > .welcome {
+  width: 100%;
+  max-width: 54em;
+  margin: .5em; }
+body > header { color: #333; background: #EFEFEF; height: 9em; padding: 1em; overflow: hidden; justify-content: space-around; }
+body > main { width: 100%; margin: 0; display: flex; flex-flow: column; }
+body > main > * { margin: .5em; padding: .5em; }
+body > main > .collection { flex-flow: row; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(22em, 1fr)); justify-content: center; }
+body > main > .collection > * { margin: .5em; padding: .5em; }
+body > main > .collection > h1 { color: #333; padding: 0; text-align: center; grid-column: 1 / -1; }
+body > main > .collection .excerpt { /* article-card */ display: flex; /* extends article.banner */ }
+body > main > .collection .excerpt > figure > img { width: 100%; height: 100%; height: 10em; }
+body > main > .collection .excerpt > header { text-align: center; }
+body > main > .collection .excerpt > header > * { text-align: center; }
+body > main > .collection .excerpt > .content { align-content: flex-start; }
+body > main > .collection .excerpt > footer { flex-flow: column nowrap; }
+body > main > .collection .excerpt > footer > aside { padding: 0; }
+body > main > .collection .excerpt > footer > aside > h1 { display: none; }
+body > main > .collection .excerpt > footer > aside ul, body > main > .collection .excerpt > footer > aside li { display: inline; }
+body > main > .collection .excerpt > footer > nav { text-align: right; padding: 0; align-self: flex-end; justify-content: right; }
+body > main > .collection .excerpt > footer .more { margin: 0 auto; text-align: center; display: block; }
+body > main > .collection .excerpt > figure { background: none; }
+body > main > .collection .excerpt .article-tags { display: none; }
+body > main > section.form { background: #EFEFEF; flex-flow: column; }
+body > main > section.form form { width: 100%; }
+body > .asides { color: #333; background: #EFEFEF; }
+body > footer { color: #333; background: #EFEFEF; }
+@media (min-width: 72em) { @supports (display: grid) { body { display: grid; grid-template-areas: " header main " " asides main " " asides footer "; grid-template-columns: var(--col) 1fr; grid-template-rows: auto 1fr auto; }
+    body > header { grid-area: header; height: auto; flex-direction: column; }
+    body > header > .logo img { height: 8em; }
+    body > header > nav { padding: 1em 0; flex-flow: column nowrap; justify-content: center; }
+    body > header > nav a { text-align: center; }
+    body > main { grid-area: main; }
+    body > .asides { grid-area: asides; justify-content: flex-start; }
+    body > footer { grid-area: footer; } } }
+@media (min-width: 90em) { @supports (display: grid) { body > main { grid-template-areas: " article collection "; grid-template-columns: 48em   1fr; }
+    body > main > article { grid-area: article; }
+    body > main > .collection { grid-area: collection; } } }
+
+/* templates/home *****************************/
+body.home > .showcase { padding: 0; min-height: calc(100vh - 9em - (1em * 3)); }
+body.home > main > .collection { color: var(--color-2-light); }
+@media (min-width: 72em) { @supports (display: grid) { body.home { display: grid; grid-template-areas: "  header   showcase " "  asides   featured " "  asides   welcome " "  asides   main   " "  asides   footer   "; grid-template-rows: calc(100vh - 1em); }
+    body.home > .showcase { grid-area: showcase; height: calc(100vh - 2em); }
+    body.home > .featured { grid-area: featured; } } }
+@media (min-width: 90em) { @supports (display: grid) { body.home { display: grid; grid-template-areas: "  header   showcase featured" "  asides   welcome welcome" "  asides   main   main" "  asides   footer   footer"; grid-template-rows: calc(100vh - 1em); grid-template-columns: var(--col) 2fr 1fr; }
+    body.home > main { flex-flow: column; }
+    body.home > main > article { padding-bottom: 1em; }
+    body.home > main > .collection { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(36em, 1fr)); }
+    body.home > main > .collection > h1 { grid-column: 1 / -1; }
+    body.home > main > .collection > .excerpt { /* article-banner */ }
+    body.home > main > .collection > .excerpt > figure { max-height: 9em; padding: .5em; }
+    body.home > main > .collection > .excerpt > figure > img { height: 100%; object-position: center; }
+    body.home > main > .collection > .excerpt > header { text-align: left; display: block; }
+    body.home > main > .collection > .excerpt > header > * { text-align: left; margin-left: 0; }
+    body.home > main > .collection > .excerpt > .content { text-align: left; margin: 0; }
+    body.home > main > .collection > .excerpt > .content .summary { text-align: left; }
+    body.home > main > .collection > .excerpt > .content .summary > ul { list-style: disc; text-align: left; margin: 0; margin-left: 1em; padding: 0; }
+    body.home > main > .collection > .excerpt > .content .summary > ul li::after { display: none; }
+    body.home > main > .collection > .excerpt > footer { flex-flow: row wrap; justify-content: space-between; }
+    body.home > main > .collection > .excerpt > footer > aside { padding: 0; }
+    body.home > main > .collection > .excerpt > footer > aside > h1 { display: none; }
+    body.home > main > .collection > .excerpt > footer > nav { padding: 0; justify-content: flex-end; }
+    @media (min-width: 54em) { @supports (display: grid) { body.home > main > .collection > .excerpt { display: grid; grid-template-areas: ' figure header ' ' figure content ' ' figure footer'; grid-template-columns: calc(var(--col) / 2) 1fr; grid-template-rows: auto 1fr auto; } } }
+    body.home > .featured { flex-flow: column; } } }
+
+/* templates/article *****************************/
+/* Print *****************************/
+@page { size: 8.5in 11in; margin: .75in; }
+@media print { html { font-size: 12pt; width: 8.5in; display: block; }
+  body { width: 8.5in; grid-template-columns: 1fr; display: block; }
+  body > header { width: 100%; flex-direction: row; align-content: center; }
+  body > header > h1 { font-size: 1.1em; }
+  body > header > nav { display: none; }
+  body > header img { width: 5em; }
+  body > footer, body > .asides { display: none; }
+  body article > footer > .article-share { display: none; }
+  body article > footer > nav.sibling { display: none; }
+  body article > nav { display: none; } }
+
+/*# sourceMappingURL=photon.css.map */
+</style>
+
+
+
+
+
+<style>
+@charset "UTF-8";
+/* photon ✴ Theme Components and Templates */
+article > figure { background: none; max-height: 40vh; }
+article > figure > img { object-fit: contain; }
+article > figure .svg { object-fit: contain; object-position: center; fill: red; filter: invert(0.5) sepia(1); }
+article > figure:empty { display: none; }
+article > header > time { display: none; }
+article > .content { width: 100%; max-width: 36em; margin: 0 auto; }
+article > .content > .summary { padding: 1em; font-weight: 700; }
+article > .content > .summary > * { margin-bottom: .5em; }
+article > .content > .summary > ul { list-style: none; text-align: center; margin: 0; padding: 0; }
+article > .content > .summary > ul li { margin: 0; padding: 0; }
+article > .content > .summary > ul li::after { display: block; content: "•"; }
+article > .content > .summary > ul li:last-child::after { display: none; content: ""; }
+article > .content h1, article > .content h2, article > .content h3, article > .content h4 { text-align: center; }
+article > footer > aside ul, article > footer > aside li { margin: 0; }
+
+article.excerpt > figure > img { object-fit: contain; }
+article.excerpt .article-share { display: none; }
+article.excerpt .more { align-self: flex-end; }
+
+article.showcase { font-size: 1.4em; }
+article.showcase > figure > img { object-fit: contain; }
+
+/* color *****************************/
+/* fonts *****************************/
+body > header { --color-bg: none; --color-fg: white; }
+body > .asides { --color-bg: none; --color-fg: white; }
+
+/*# sourceMappingURL=photon-child.css.map */
+
+</style>
+
+
+
+
+
+<!-- JS photon-plugins -->
+
+
+
+</head>
+
+  <body class=" article"><header>
+
+  <div class="logo">
+    <a href="https://photon-platform.net/">
+      <img src="https://photon-platform.net/images/photon-logo.png" alt="logo">
+      <h1>photon</h1>
+    </a>
+  </div>
+
+  <nav class="main">
+    <a href="https://photon-platform.net/">Home</a>
+    <a href="https://photon-platform.net/features">Features</a>
+    <a href="https://photon-platform.net/practices">Practices</a>
+    <a href="https://photon-platform.net/principles">Principles</a>
+    <a href="https://photon-platform.net/systems" class="active">Systems</a>
+    <a href="https://photon-platform.net/news">News</a>
+    <a href="https://photon-platform.net/contact">Contact</a>
+    <a href="https://photon-platform.net/subscribe">Subscribe</a>
+    <a href="https://photon-platform.net/about">About</a>
+    <a href="https://photon-platform.net/search">Search</a>
+  </nav>
+
+  <aside class="contact">
+    <p>SHINE</p>
+    <p>YOUR</p>
+    <p>LIGHT</p>
+  </aside>
+
+  <a href="javascript:void(0);" class="toggle" onclick="toggleMenu()">✴</a>
+</header>
+
+
+
+<main data-collection="7">
+
+  <article class="article" data-url="/systems/tools">
+    <figure>
+
+      <img title="Tools" alt="" class="svg" src="https://photon-platform.net/systems/tools/010-maintenance.svg">
+      <!-- <object type="image/svg+xml" data="/user/pages/05.systems/00.tools/010-maintenance.svg" title="Tools" alt="">
+        Tools
+      </object> -->
+
+
+    </figure>
+
+    <header>
+
+      <nav class="breadcrumbs">
+        <a href="https://photon-platform.net/systems">Systems</a>
+      </nav>
+      <h1> Tools </h1>
+      <h2>software components and systems</h2>
+      <time title="2018-12-22" datetime="2018-12-22">Dec 22 2018</time>
+    </header>
+    <div class="content">
+      <div class="summary">
+        <ul>
+          <li>Operating System</li>
+          <li>HTTP Server</li>
+          <li>Templating System</li>
+          <li>Text Editing</li>
+          <li>Version Control</li>
+        </ul>
+
+      </div>
+
+      <h3>Tools provide the fundamental capabilities</h3>
+      <ul>
+        <li>tools are the primary components we use to develop, publish and manage our content</li>
+      </ul>
+      <h3>Criteria for Selection</h3>
+      <ul>
+        <li>open source</li>
+        <li>well established community with continually history of improvement</li>
+        <li>good documentation and resources</li>
+        <li>extensible</li>
+      </ul>
+      <h3>The system is the tuning of these tools to interoperate</h3>
+      <ul>
+        <li>the better interagrated a system, the more aware the tools are of each other</li>
+      </ul>
+    </div>
+
+
+
+    <footer>
+      <aside class="article-share">
+        <h2>Share</h2>
+        <ul>
+          <li><a target="" title="share on email" href="mailto:?subject=Tools&amp;body=https://photon-platform.net/systems/tools">e</a></li>
+          <li><a target="_blank" title="share on facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://photon-platform.net/systems/tools">f</a></li>
+          <li><a target="_blank" title="share on twitter" href="https://twitter.com/intent/tweet?url=https://photon-platform.net/systems/tools&amp;text=Tools">t</a></li>
+          <li><a target="_blank" title="share on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://photon-platform.net/systems/tools&amp;title=Tools">i</a></li>
+          <li><a target="_blank" title="share on pinterest" href="https://pinterest.com/pin/create/button/?url=https://photon-platform.net/systems/tools&amp;media=0&amp;description=%0AOperating%20System%0AHTTP%20Server%0ATemplating%20System%0AText%20Editing%0AVersion%20Control%0A%0A">n</a></li>
+          <li><a target="_blank" title="RSS feed" href="https://photon-platform.net/systems/tools.rss">r</a></li>
+        </ul>
+      </aside>
+    </footer>
+    <!-- user/themes/photon/templates/_articles/article.html.twig -->
+  </article>
+
+  <section class="collection">
+    <h1>articles: <span class="count">7</span></h1>
+
+    <article class="organization excerpt" data-url="/systems/tools/pop_os">
+      <figure>
+
+        <img title="Pop!_OS logo" alt="circular logo with " p!""="" class="excerpt" src="https://photon-platform.net/systems/tools/p-logo.png" srcset="/images/8/4/1/6/6/84166d3fbef683d4e30289115badffb19e4c99f4-p-logo300w.png 300w, /user/pages/05.systems/00.tools/01.pop_os/p-logo.png 400w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/pop_os">Pop!_OS</a> </h1>
+        <h2>Linux Operating System</h2>
+        <time title="2018-12-19" datetime="2018-12-19">Dec 19 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>File System</li>
+            <li>Applications</li>
+            <li>Command Line</li>
+            <li>Configuration</li>
+            <li>Package Management</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/pop_os">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/apache">
+      <figure>
+
+        <img title="Apache logo" alt="logo for the Apache Software Foundation" class="excerpt" src="https://photon-platform.net/systems/tools/feather.png" srcset="/images/b/d/5/3/e/bd53ec1a11b73d19af9aa36b611f203390b87854-feather300w.png 300w, /user/pages/05.systems/00.tools/02.apache/feather.png 1295w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/apache">Apache</a> </h1>
+        <h2>HTTP Server</h2>
+        <time title="2018-12-19" datetime="2018-12-19">Dec 19 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>Hosting Service</li>
+            <li>Local and Production Environments</li>
+            <li>Multiple Sites</li>
+            <li>Command Line Tools</li>
+            <li>Site Config</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/apache">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/grav">
+      <figure>
+
+        <img title="Grav CMS" alt="circular logo with astronaut" class="excerpt" src="https://photon-platform.net/systems/tools/grav-logo-png-transparent.png" srcset="/images/7/0/f/d/7/70fd78919f2d438f18a3b453f49f771f810d000e-grav-logo-png-transparent300w.png 300w, /user/pages/05.systems/00.tools/03.grav/grav-logo-png-transparent.png 2400w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/grav">Grav</a> </h1>
+        <h2>Content Management System</h2>
+        <time title="2018-12-27" datetime="2018-12-27">Dec 27 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>Flat File Content Storage</li>
+            <li>Markdown / YAML format</li>
+            <li>Plugins and Themes</li>
+            <li>Package Management</li>
+            <li>TWIG templates</li>
+            <li>PHP / Symfony Framework</li>
+            <li>Asset Management</li>
+            <li>Image Sizing</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/grav">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/atom">
+      <figure>
+
+        <img title="Atom Editor" alt="logo - diagram of atom" class="excerpt" src="https://photon-platform.net/systems/tools/2000px-Atom_editor_logo.png" srcset="/images/c/8/5/d/8/c85d86f71ed12f87ca2b3eed5aabe83d7a1912c2-2000px-atomeditorlogo300w.png 300w, /user/pages/05.systems/00.tools/04.atom/2000px-Atom_editor_logo.png 2000w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/atom">Atom</a> </h1>
+        <h2>text editing</h2>
+        <time title="2018-12-27" datetime="2018-12-27">Dec 27 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>IDE - integrated Development environment</li>
+            <li>Language Support</li>
+            <li>Syntax highlighting</li>
+            <li>Grammars and linters</li>
+            <li>Snippets</li>
+            <li>Package Management</li>
+            <li>Version Control Integration</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/atom">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/git-vcs">
+      <figure>
+
+        <img title="Git" alt="Git logo" class="excerpt" src="https://photon-platform.net/systems/tools/Git-Icon-1788C.png" srcset="/images/7/a/a/1/c/7aa1c40d1d88e588caa3f28171d27c66f079db74-git-icon-1788c300w.png 300w, /user/pages/05.systems/00.tools/05.git-vcs/Git-Icon-1788C.png 383w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/git-vcs">Git</a> </h1>
+        <h2>Source control and versioning</h2>
+        <time title="2018-12-27" datetime="2018-12-27">Dec 27 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>version control</li>
+            <li>track changes</li>
+            <li>development branches</li>
+            <li>sync to online repositories</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/git-vcs">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/browsers">
+      <figure>
+
+        <img title="Firefox" alt="Firefox logo" class="excerpt" src="https://photon-platform.net/systems/tools/Firefox_Logo_2017.png" srcset="/images/2/3/c/a/a/23caa685691b05fb312f723c5f06d89323900655-firefoxlogo2017300w.png 300w, /user/pages/05.systems/00.tools/06.browsers/Firefox_Logo,_2017.png 2001w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/browsers">Browsers</a> </h1>
+        <h2>Primary Interface to Content</h2>
+        <time title="2018-12-27" datetime="2018-12-27">Dec 27 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>Rendering</li>
+            <li>User Experience</li>
+            <li>Developer Tools</li>
+            <li>Testing</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/browsers">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+    <article class="article excerpt" data-url="/systems/tools/graphics">
+      <figure>
+
+        <img alt="" class="excerpt" src="https://photon-platform.net/systems/tools/1200px-Darktable_icon.png" srcset="/images/9/e/8/9/1/9e891e70d57b23fe8b96d5e73cd4d90dfe7c76c2-1200px-darktableicon300w.png 300w, /user/pages/05.systems/00.tools/06.graphics/1200px-Darktable_icon.png 1200w"
+          sizes="10em">
+
+      </figure>
+
+      <header>
+        <h1> <a href="https://photon-platform.net/systems/tools/graphics">Graphics</a> </h1>
+        <h2>vector and image based graphics</h2>
+        <time title="2018-12-27" datetime="2018-12-27">Dec 27 2018</time>
+      </header>
+      <div class="content">
+        <div class="summary">
+          <ul>
+            <li>SVG</li>
+            <li>PNG</li>
+            <li>JPG</li>
+            <li>MOV, MPG</li>
+            <li>MP3 (audio)</li>
+          </ul>
+
+        </div>
+      </div>
+      <footer>
+
+        <nav class="more">
+          <a href="https://photon-platform.net/systems/tools/graphics">More &gt;</a>
+        </nav>
+      </footer>
+      <!-- user/themes/photon/templates/_articles/article-excerpt.html.twig -->
+    </article>
+
+    <!-- pagination.html.twig -->
+  </section>
+
+</main>
+
+
+<section class="asides" role="”complementary”">
+
+  <aside class="featured-list">
+    <h2>Featured</h2>
+    <a href="https://photon-platform.net/systems/tools">Tools</a>
+    <a href="https://photon-platform.net/subscribe">Subscribe</a>
+  </aside>
+
+  <aside class="recent">
+    <h2>Recent</h2>
+    <a href="https://photon-platform.net/search/taxonomy">Taxonomy</a>
+    <a href="https://photon-platform.net/search">Search</a>
+    <a href="https://photon-platform.net/subscribe">Subscribe</a>
+    <a href="https://photon-platform.net/systems/tools/graphics">Graphics</a>
+    <a href="https://photon-platform.net/systems/tools/browsers">Browsers</a>
+  </aside>
+
+  <aside class="categories">
+    <h2>Categories</h2>
+
+  </aside>
+
+  <aside class="tags">
+    <h2>Tags</h2>
+    <a class="" href="https://photon-platform.net/search/taxonomy/tag:showcase">showcase</a>
+    <a class="" href="https://photon-platform.net/search/taxonomy/tag:featured">featured</a>
+
+  </aside>
+
+</section>
+
+
+<footer>
+
+
+  <aside>
+    <p>
+      © 2018
+      photon
+      <br>
+      created by illumiphi.
+    </p>
+  </aside>
+  <aside class="follow">
+    <h2>Follow</h2>
+    <ul>
+      <li><a target="_blank" title="follow on facebook" href="https://www.facebook.com/phi.architect">f</a></li>
+
+      <li><a target="_blank" title="follow on twitter" href="https://twitter.com/intent/follow?screen_name=phi_am_i">t</a></li>
+
+      <li><a target="_blank" title="follow on linkedin" href="https://www.linkedin.com/in/iamphi">i</a></li>
+
+      <li><a target="_blank" title-"follow="" on="" youtube"="" href="https://www.youtube.com/channel/UCYzRQS16EBmsbKuyKMFHSFQ">y</a></li>
+
+      <li><a target="_blank" title="follow on github" href="https://github.com/photon-platform">g</a></li>
+
+      <li><a target="_blank" title="rss" href="https://photon-platform.net/systems/tools.rss">r</a></li>
+    </ul>
+  </aside>
+
+</footer>
+
+
+
+
+
+</body>
+
+</html>
